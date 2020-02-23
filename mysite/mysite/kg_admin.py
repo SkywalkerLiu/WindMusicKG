@@ -1,10 +1,10 @@
-from mysite.mysite.settings import *
+from .settings import *
 import mysql.connector
 from mysql.connector import errorcode
 from django.urls import path
 from django.shortcuts import HttpResponse, redirect, render
 import json
-from Echarts_Experiments.mysite.mysite.search import db_connection
+from .search import db_connection
 from datetime import datetime
 import pytz
 

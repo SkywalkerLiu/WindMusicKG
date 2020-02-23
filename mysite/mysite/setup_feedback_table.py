@@ -1,6 +1,12 @@
-from Storage.settings import *
+import os
+import sys
+
 import mysql.connector
 from mysql.connector import errorcode
+
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(PROJECT_DIR)
+from Storage.settings import *
 
 TABLES = {'feedback': (
     "CREATE TABLE `feedback`("
@@ -51,7 +57,6 @@ for table_name in TABLES:
             print(err.msg)
     else:
         print("OK")
-
 
 cursor.close()
 cnx.close()

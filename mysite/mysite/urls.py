@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.shortcuts import HttpResponse, redirect, render
-from mysite.mysite import views, search, kg_admin, feedback
+from . import views, search, kg_admin, feedback
 
 
 def echarts(request):

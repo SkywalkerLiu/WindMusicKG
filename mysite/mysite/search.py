@@ -1,4 +1,4 @@
-from mysite.mysite.settings import *
+from .settings import *
 import mysql.connector
 from mysql.connector import errorcode
 from django.contrib import admin
