@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2020/2/23 20:34
+# @Author  : GaleHuang (Huang Dafeng)
+# @github: https://github.com/Galehuang
+
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 from lxml import etree

@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2020/2/23 20:34
+# @Author  : GaleHuang (Huang Dafeng)
+# @github: https://github.com/Galehuang
+
 from errno import errorcode
 
 from Storage.settings import *
