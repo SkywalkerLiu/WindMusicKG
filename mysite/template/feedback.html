@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WindMusicKG反馈</title>
+    <link rel="stylesheet" href="\static\feedback.css">
+</head>
+<body>
+<button onclick="location.href='/'" type="button" class="btn-light">
+         返回首页</button>
+<div class="Content-Main">
+    <div class="Content-Main1">
+        <h1>用户反馈</h1>
+    </div>
+    <form action="\sendfeedback\" method="post" class="form-report">
+        <label>
+            <span>Contact:</span>
+            <select name="select2" class="select2">
+                <option value="Email">Email</option>
+                <option value="Phone">Phone</option>
+                <option value="QQ">QQ</option>
+            </select>
+            <input type="text" name="value" placeholder="">
+        </label>
+        <label>
+            <span>Message:</span>
+            <textarea id="mesaage" name="message" placeholder="Your can tell me"></textarea>
+        </label>
+        <label>
+            <span>Subject:</span>
+            <select name="select1" class="select1">
+                <option value="leave">留言</option>
+                <option value="Cantfind">找不到相关信息</option>
+                <option value="WrongInfo">信息错误反馈</option>
+            </select>
+        </label>
+        <label>
+            <input type="submit" class="button" value="Send">
+        </label>
+    </form>
+</div>
+
+</body>
+</html>

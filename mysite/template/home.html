@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WindMusicKG</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="/static/navi.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">WindMusicKG 华语流行音乐歌手图谱 Version 0.2.22</span>
+</nav>
+<br>
+<!--    <h1>欢迎来到WindMusicKG</h1> <h2>华语流行音乐歌手图谱</h2>-->
+<!--    <form method="post" action="\search\">-->
+<!--        <select name="type">-->
+<!--              <option value ="singer">歌手/乐队</option>-->
+<!--              <option value="area">出生地</option>-->
+<!--              <option value ="company">经纪公司</option>-->
+<!--              <option value="school">学校</option>-->
+
+<!--        </select>-->
+<!--        <input name="name" type="text">-->
+<!--        <input type="submit" value="搜索">-->
+<!--        {{msg}}-->
+<!--    </form>-->
+<!--    <br>-->
+<!--    {% if feedback %}-->
+<!--    <a href="/feedback/">找不到歌手?点此反馈</a>-->
+<!--    {% endif %}-->
+
+
+    <form method="post" action="\search\" class="form-inline">
+        <select name="type" class="form-control form-control-sm ">
+              <option value ="singer">歌手/乐队</option>
+              <option value="area">出生地</option>
+              <option value ="company">经纪公司</option>
+              <option value="school">毕业院校</option>
+        </select>
+        <input name="name" type="text">
+        <input type="submit" value="搜索">
+        {% if feedback %}
+          <strong>{{msg}}</strong>
+        {% endif %}
+    </form>
+    <br>
+    
+    <a href="/feedback/">找不到有关信息?点此反馈</a>
+
+    <br>
+    <br>
+    <button onclick="location.href='/kg_admin/'" type="button" class="btn-light">
+         后台管理平台入口</button>
+
+
+</body>
+</html>

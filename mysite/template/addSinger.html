@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加歌手</title>
+    <link rel="stylesheet" href="\static\feedback.css">
+    <!-- 引入 ECharts 文件 -->
+    <script src="/static/echarts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="Content-Main">
+    <div class="Content-Main1">
+        <h1>添加歌手</h1>
+    </div>
+    <form action="\kg_admin\add_singer\" method="post" class="form-report">
+        {% for key,value in names.items %}
+        <label>
+            <span>{{key}}</span>
+            <input type="text" name="{{value}}" placeholder="">
+        </label>
+        {% endfor %}
+
+        <label>
+            <span>主要成就</span>
+            <textarea id="message" name="achievement" ></textarea>
+        </label>
+        <label>
+            <span>baike_url</span>
+            <textarea id="baike_url" name="baike_url" ></textarea>
+        </label>
+        <label>
+            <input type="submit" class="button" value="确定添加">
+        </label>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{singer.baike_name}}</title>
+    <!-- 引入 ECharts 文件 -->
+    <script src="/static/echarts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <button onclick="location.href='/'" type="button" class="btn-light">
+             返回首页</button>
+    <a href="/feedback/" >歌手信息有误?点此反馈</a>
+
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 1200px;height:700px;margin:auto"></div>
+    <script type="text/javascript">
+
+        var singer_info = {{singer|safe}};
+        var myChart = echarts.init(document.getElementById('main'));
+        myChart.on('click', function (params) {
+            console.log(params.name);
+            window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+
+            });
+        let axixes = [[0, 300],
+                     [-300, 0],
+                     [300, 0],
+                     [0, -300],
+                     [200, 100],
+                     [-200, 100],
+                     [-200, -100],
+                     [200, -100],
+                     [100, 200],
+                     [-100, 200],
+                     [-100, -200],
+                     [100, -200],
+                     [300, 300],
+                     [300, -300],
+                     [-300,300],
+                     [-300,-300]
+                     ];
+        let translation = {
+            'chinese_name':'中文名',
+            'constellation': '星座',
+            'blood_type': '血型'
+        };
+        option = {
+            align: 'center',
+            title: {
+                text: singer_info.baike_name + '的个人信息',
+                textAlign: 'auto',
+                left: 'center',
+            },
+            tooltip: {},
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series: [
+                {
+                    type: 'graph',
+                    layout: 'none',
+                    symbolSize: 80,
+                    roam: true,
+                    label: {
+                        show: true
+                    },
+                    edgeSymbol: ['circle', 'arrow'],
+                    edgeSymbolSize: [4, 4],
+                    edgeLabel: {
+                        fontSize: 20
+                    },
+                    data: [
+                        {
+                        id : 0,
+                        name: singer_info.baike_name,
+                        x: 400,
+                        y: 400,
+                    },
+                        // {
+                    //     name: singer_info.school_id,
+                    //     x: 700,
+                    //     y: 400
+                    // }, {
+                    //     name: singer_info.birthplace,
+                    //     x: 100,
+                    //     y: 400
+                    // }, {
+                    //     name: singer_info.birthdate,
+                    //     x: 400,
+                    //     y: 700
+                    // }, {
+                    //     name: singer_info.company_id,
+                    //     x: 400,
+                    //     y: 100
+                    // }
+                    ],
+                    // links: [],
+                    links: [
+                    //     {
+                    //     source: 0,
+                    //     target: 1,
+                    //     symbolSize: [5, 20],
+                    //     label: {
+                    //         fontSize:12,
+                    //         show: true,
+                    //         formatter: '毕业院校ID'
+                    //     },
+                    //     lineStyle: {
+                    //         width: 2,
+                    //         curveness: 0
+                    //     }
+                    // }, {
+                    //     source: 0,
+                    //     target: 2,
+                    //     symbolSize: [5, 20],
+                    //     label: {
+                    //         fontSize:12,
+                    //         show: true,
+                    //         formatter: '出生地'
+                    //     },
+                    //     lineStyle: {
+                    //         width: 2,
+                    //         curveness: 0
+                    //     }
+                    // },
+                    //     {
+                    //     source: 0,
+                    //     target: 3,
+                    //     symbolSize: [5, 20],
+                    //     label: {
+                    //         fontSize:12,
+                    //         show: true,
+                    //         formatter: '出生日期'
+                    //     },
+                    //     lineStyle: {
+                    //         width: 2,
+                    //         curveness: 0
+                    //     }
+                    // },
+                    //     {
+                    //     source: 0,
+                    //     target: 4,
+                    //     symbolSize: [5, 20],
+                    //     label: {
+                    //         fontSize:12,
+                    //         show: true,
+                    //         formatter: '公司ID'
+                    //     },
+                    //     lineStyle: {
+                    //         width: 2,
+                    //         curveness: 0
+                    //     }
+                    // },
+                    ],
+                    lineStyle: {
+                        opacity: 0.9,
+                        width: 2,
+                        curveness: 0
+                    }
+                }
+            ]
+        };
+        var target = 1;
+        var temp_id = 1;
+        var fobidden_columns = ['id','baike_name','achievement','baike_url','update_time','create_time','school_id','company_id'];
+        for(var column in singer_info){
+            if(singer_info[column]!==null && !fobidden_columns.includes(column) && target<=16){
+                option.series[0].links.push({
+                        source: 0,
+                        target: target,
+                        symbolSize: [5, 20],
+                        label: {
+                            fontSize:12,
+                            show: true,
+                            formatter: column
+
+                        },
+                        lineStyle: {
+                            width: 2,
+                            curveness: 0
+                        }
+                    });
+                option.series[0].data.push(
+                    {
+                        id: temp_id,
+                        // name: " "+singer_info[column]+" ",
+                        name: singer_info[column],
+                        x: 400 + axixes[target-1][0],
+                        y: 400 + axixes[target-1][1],
+                    }
+                );
+            target += 1;
+            temp_id += 1;
+            }
+
+        }
+
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>
