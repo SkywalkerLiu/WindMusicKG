@@ -44,5 +44,74 @@
 
 ## 使用方法
 
-待补充
+Step 1: 爬取网易云音乐歌手清单
+
+```bash
+cd Crawler/NeteaseMusicSinger
+python run.py
+```
+
+运行完之后歌手的信息会保存在`singers.json`中
+
+Step 2: 
+
+1. 先将上一步爬取的`singers.json`放到`BaiduBaike`目录下
+
+2. 配置redis服务器，将redis服务器相关参数填入`/Crawler/BaiduBaike/BaiduBaike/spiders/settings.py`中
+
+3. 运行爬虫程序爬取百度百科歌手信息
+
+   ```bash
+   cd Crawler/BaiduBaike
+   python run.py
+   ```
+
+   爬取的信息将自动保存到redis数据库中
+
+Step 3:
+
+将Redis数据库内容转移到MYSQL数据库中
+
+1. 配置MYSQL服务器
+
+2. 在`/Storage/settings.py`中填入MYSQL数据库和Redis数据库的相关参数
+
+3. 在MYSQL数据库中建表
+
+   ```bash
+   cd Storage
+   python setup.py
+   ```
+
+4. 运行迁移程序
+
+   ```bash
+   python migration.py
+   ```
+
+Step 4:
+
+1. 在`mysite/mysite/settings.py`中填入MYSQL数据库的参数
+
+2. 在MYSQL数据库中新建用户反馈表
+
+   ```bash
+   cd mysite/mysite
+   python setup_feedback_table.py
+   ```
+
+3. 开启服务端
+
+```bash
+cd mysite/mysite
+python manage.py 127.0.0.1:8000
+```
+
+Note: Step1, 2, 3和Step4的2都是可以直接跳过的, `Archive`文件夹里包含了这些几个步骤所得到的结果。
+
+`Archive/singers.json:` 网易云音乐爬取结果
+
+`Archive/dump.rdb:` 爬取得到的redis数据库内容
+
+`Archive/windmusickg.sql:` 最终构建好的五张MYSQL表
 
