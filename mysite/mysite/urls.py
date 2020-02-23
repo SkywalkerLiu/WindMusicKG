@@ -34,7 +34,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('graph/', singer_query),
-    path('Jaychou/', views.Jaychou),
     path('search/', search.query),
     # path('kg_admin/', kg_admin),
     path('feedback/', feedback.feedback),
