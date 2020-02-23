@@ -33,16 +33,3 @@ class db_connection():
     def close(self):
         self.MysqlDB.close()
 
-
-def Jaychou(request):
-    conn = db_connection()
-    mycursor = conn.MysqlDB.cursor()
-    mycursor.execute("SELECT * from `singer` WHERE `baike_name` = '周杰伦'")
-    res = mycursor.fetchall()
-    column_names = [i[0] for i in mycursor.description]
-    conn.close()
-    res = res[0]
-    JayChou = dict()
-    for i, column in enumerate(column_names):
-        JayChou[column] = res[i]
-    return render(request, 'Jaychou.html', {'singer': json.dumps(JayChou, ensure_ascii=False)})

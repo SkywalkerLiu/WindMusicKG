@@ -20,20 +20,10 @@ from django.shortcuts import HttpResponse, redirect, render
 from . import views, search, kg_admin, feedback
 
 
-def echarts(request):
-    return render(request, 'demo.html')
 
 
 def singer_query(request):
     return render(request, 'graph.html')
-
-
-def try_graph(request):
-    return render(request, 'new_graph.html')
-
-
-def liuhuaiyu(request):
-    return render(request, 'liuhuaiyu.html')
 
 
 def home(request):
@@ -44,8 +34,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('graph/', singer_query),
-    path('trygraph/', try_graph),
-    path('liuhuaiyu/', liuhuaiyu),
     path('Jaychou/', views.Jaychou),
     path('search/', search.query),
     # path('kg_admin/', kg_admin),
