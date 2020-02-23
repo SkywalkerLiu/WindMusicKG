@@ -1,1 +1,3 @@
 *.js linguist-detectable=false
+*.sql linguist-detectable=false
+*.py linguist-detectable=true
