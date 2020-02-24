@@ -119,17 +119,17 @@ Note: Step1, 2, 3和Step4的2都是可以直接跳过的, `Archive`文件夹里�
 
 主界面
 
-<img src="\Img\Main.png" alt="Main" style="zoom:33%;" />
+<img src="/Img/Main.png" alt="Main" style="zoom:33%;" />
 
 支持通过歌手/乐队名，出生地，经纪公司和毕业院校搜索歌手。
 
 下图是通过出生地搜索“北京”的结果
 
-<img src="C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\search.PNG" alt="Search" style="zoom:38%;" />
+<img src="\Img\search.PNG" alt="Search" style="zoom:38%;" />
 
 选择一个歌手即可展示其图谱信息：
 
-![singer](\Img\singer.PNG)
+![singer](/Img/singer.PNG)
 
 支持反馈功能和查看用户反馈：
 
