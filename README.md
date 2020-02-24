@@ -2,6 +2,8 @@
 
 华语流行音乐歌手图谱：轻量级demo
 
+[TOC]
+
 ## 基本框架
 
 1. 利用爬取的半结构化数据构建华语歌手知识图谱，支持网页端可视化、搜索和后台管理等功能
@@ -114,4 +116,42 @@ Note: Step1, 2, 3和Step4的2都是可以直接跳过的, `Archive`文件夹里�
 `Archive/dump.rdb:` 爬取得到的redis数据库内容
 
 `Archive/windmusickg.sql:` 最终构建好的五张MYSQL表
+
+## 效果展示
+
+主界面
+
+<img src="\Img\Main.png" alt="Main" style="zoom:33%;" />
+
+支持通过歌手/乐队名，出生地，经纪公司和毕业院校搜索歌手。
+
+下图是通过出生地搜索“北京”的结果
+
+<img src="C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\search.PNG" alt="Search" style="zoom:38%;" />
+
+选择一个歌手即可展示其图谱信息：
+
+![singer](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\singer.PNG)
+
+支持反馈功能和查看用户反馈：
+
+![feedback](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\feedback.PNG)
+
+![](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\view_feedback.PNG)
+
+后台手动添加歌手信息:
+
+![add_singer](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\add_singer.PNG)
+
+![add_Singer_1](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\add_singer_1.PNG)
+
+<img src="C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\add_singer_2.PNG" alt="add_singer_2" style="zoom:33%;" />
+
+## 未来更多功能
+
+1. 更多功能，如后台管理的编辑歌手信息，编辑公司学校信息，管理界面的账号密码安全登陆等，正在开发中
+2. 从redis数据库中同步读取新爬取的数据并解析到MYSQL库的自动化脚本，而非一次性迁移
+3. :star:自然语言处理demo: 通过输入一段描述歌手信息的自然语言，系统自动通过信息抽取(IE)模块提取关键信息并通过HTTP请求发送给服务端，服务端自动将其存入库中，可加入后台管理员审核模块，来审核抽取的信息的质量并做适当修改后正式入库或合并库中条目。
+
+Note: 功能3是最希望开发的一项功能，目前的打算后台算法使用JAVA的coreNLP库来完成，然后提取信息后通过向server发送HTTP请求的方式入库（类似于Elasticsearch对Lucene的封装） 如果有小伙伴愿意一同开发或交流的，欢迎联系我！
 
