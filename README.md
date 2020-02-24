@@ -2,8 +2,6 @@
 
 华语流行音乐歌手图谱：轻量级demo
 
-[TOC]
-
 ## 基本框架
 
 1. 利用爬取的半结构化数据构建华语歌手知识图谱，支持网页端可视化、搜索和后台管理等功能
@@ -131,7 +129,7 @@ Note: Step1, 2, 3和Step4的2都是可以直接跳过的, `Archive`文件夹里�
 
 选择一个歌手即可展示其图谱信息：
 
-![singer](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\singer.PNG)
+![singer](\Img\singer.PNG)
 
 支持反馈功能和查看用户反馈：
 
