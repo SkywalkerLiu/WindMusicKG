@@ -359,5 +359,6 @@ class Redis2Mysql(object):
         pass
 
 
-MigrationTool = Redis2Mysql()
-MigrationTool.migrate()
+if __name__ == '__main__':
+    MigrationTool = Redis2Mysql()
+    MigrationTool.migrate()
