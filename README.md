@@ -9,6 +9,36 @@
 3. 采用MySQL数据库存储三元组，编写了迁移模块将数据迁移到MYSQL数据库
 4. 使用Django+Echarts做服务端和图谱可视化
 
+## 效果展示
+
+主界面
+
+<img src="/Img/Main.PNG" alt="Main"  />
+
+支持通过歌手/乐队名，出生地，经纪公司和毕业院校搜索歌手。
+
+下图是通过出生地搜索“北京”的结果
+
+<img src="/Img/search.PNG" alt="Search" style="zoom:38%;" />
+
+选择一个歌手即可展示其图谱信息：
+
+![singer](/Img/singer.PNG)
+
+支持反馈功能和查看用户反馈：
+
+![feedback](/Img/feedback.PNG)
+
+![view_feedback](/Img/view_feedback.PNG)
+
+后台手动添加歌手信息:
+
+![add_singer](/Img/add_singer.PNG)
+
+![add_Singer_1](/Img/add_singer_1.PNG)
+
+![add_Singer_2](/Img/add_singer_2.PNG)
+
 ## 项目文件描述
 
 ### Crawler
@@ -114,36 +144,6 @@ Note: Step1, 2, 3和Step4的2都是可以直接跳过的, `Archive`文件夹里�
 `Archive/dump.rdb:` 爬取得到的redis数据库内容
 
 `Archive/windmusickg.sql:` 最终构建好的五张MYSQL表
-
-## 效果展示
-
-主界面
-
-<img src="/Img/Main.PNG" alt="Main" style="zoom:33%;" />
-
-支持通过歌手/乐队名，出生地，经纪公司和毕业院校搜索歌手。
-
-下图是通过出生地搜索“北京”的结果
-
-<img src="/Img/search.PNG" alt="Search" style="zoom:38%;" />
-
-选择一个歌手即可展示其图谱信息：
-
-![singer](/Img/singer.PNG)
-
-支持反馈功能和查看用户反馈：
-
-![feedback](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\feedback.PNG)
-
-![](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\view_feedback.PNG)
-
-后台手动添加歌手信息:
-
-![add_singer](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\add_singer.PNG)
-
-![add_Singer_1](C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\add_singer_1.PNG)
-
-<img src="C:\Users\HuangDafeng\Desktop\workstation\WindMusicKG\Img\add_singer_2.PNG" alt="add_singer_2" style="zoom:33%;" />
 
 ## 未来更多功能
 
